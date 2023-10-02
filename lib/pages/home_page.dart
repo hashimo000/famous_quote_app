@@ -102,6 +102,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             });
                           },
                         ),
+                        onTap: ()async{
+                         await Navigator.push(context,MaterialPageRoute(builder: (context)=>AddEditAlarmPage(alarmList,index: index)));
+                          setState(() {
+                            
+                          });
+                        },
                       ),
                     ),
                     const Divider(
