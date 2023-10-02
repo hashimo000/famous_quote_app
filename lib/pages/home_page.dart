@@ -52,7 +52,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   return Column(
                     children: [
                       ListTile(
-                        title: Text(DateFormat("H,mm").format(alarm.alarmTime)),
+                        title: Text(DateFormat("H:mm").format(alarm.alarmTime),
+                        style: const TextStyle(color:Colors.white,fontSize: 50),
+                        ),
                       )
                     ],
                   );
