@@ -10,6 +10,7 @@ class AddEditAlarmPage extends StatefulWidget {
 
 class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
   TextEditingController controller=TextEditingController();
+  DateTime selectedTime = DateTime.now();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +70,19 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
                   border: InputBorder.none
                 ),
                 readOnly: true,
-                
+                onTap: (){
+                  showModalBottomSheet(context: context, builder: 
+                   (BuildContext context) {
+                    return CupertinoDatePicker(
+                      initialDateTime: selectedTime,
+                      mode: CupertinoDatePickerMode.time,
+                      onDateTimeChanged: (newDate){
+
+                      },
+      );
+    });
+                  
+                },
               ),
             )
           ],
