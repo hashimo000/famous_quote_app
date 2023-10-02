@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class AddEditAlarmPage extends StatefulWidget {
   const AddEditAlarmPage({super.key});
@@ -77,7 +78,12 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
                       initialDateTime: selectedTime,
                       mode: CupertinoDatePickerMode.time,
                       onDateTimeChanged: (newDate){
-
+                        String  time =DateFormat("H:mm").format(newDate);
+                        selectedTime =newDate;
+                        controller.text=time;
+                        setState(() {
+                          
+                        });
                       },
       );
     });
