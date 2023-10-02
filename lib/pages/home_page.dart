@@ -51,11 +51,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   Alarm alarm =alarmList[index];
                   return Column(
                     children: [
+                      if(index ==0)const Divider(color: Colors.grey,height: 1,),
                       ListTile(
                         title: Text(DateFormat("H:mm").format(alarm.alarmTime),
                         style: const TextStyle(color:Colors.white,fontSize: 50),
                         ),
-                      )
+                        trailing: CupertinoSwitch(
+                          value: true, 
+                          onChanged: (newValue){
+
+                          },),
+                      ),
+                      const Divider(color: Colors.grey,height: 0,)
                     ],
                   );
                 },
