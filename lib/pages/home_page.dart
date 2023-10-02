@@ -21,8 +21,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<Alarm> alarmList = [
-    Alarm(alarmTime: DateTime.now()),
-    Alarm(alarmTime: DateTime.now()),
+   
   ];
 
   @override
@@ -42,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onTap: () async{
                 await  Navigator.push(context, MaterialPageRoute(builder: (context) => AddEditAlarmPage(alarmList)));
                   setState(() {
-                    
+                    alarmList.sort((a,b)=>a.alarmTime.compareTo(b.alarmTime));
                   });
                 },
               ),
