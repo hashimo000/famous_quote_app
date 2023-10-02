@@ -30,17 +30,15 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+     backgroundColor: Color.fromARGB(121, 41, 41, 56),
       body: Center(
         child: CustomScrollView(
           slivers: [
             CupertinoSliverNavigationBar(
-              backgroundColor: Colors.black,
+              backgroundColor: Color.fromARGB(110, 21, 21, 22),
               largeTitle:const Text("通知時間", style:TextStyle(color: Colors.white)),
               trailing: GestureDetector(
-                child:const Icon(Icons.add,color: Colors.orange),
+                child:const Icon(Icons.add,color: Color.fromARGB(255, 32, 134, 243)),
                 onTap: (){
 
                 },
