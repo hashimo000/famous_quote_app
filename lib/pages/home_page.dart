@@ -57,9 +57,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         style: const TextStyle(color:Colors.white,fontSize: 50),
                         ),
                         trailing: CupertinoSwitch(
-                          value: true, 
+                          value: alarm.isActive, 
                           onChanged: (newValue){
-
+                            setState(() {
+                              alarm.isActive=newValue;
+                            });
                           },),
                       ),
                       const Divider(color: Colors.grey,height: 0,)
