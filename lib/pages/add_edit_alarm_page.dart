@@ -9,6 +9,7 @@ class AddEditAlarmPage extends StatefulWidget {
 }
 
 class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
+  TextEditingController controller=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +45,13 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
       body: Container(
         height: double.infinity,
         color: Colors.black,
-        child: Row(
+        child:Column(
+          children: [
+            SizedBox(height: 50,),
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 20.0),
+              child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const Text("時間",style: TextStyle(color: Colors.white),),
             Container(
@@ -54,10 +61,24 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
                 borderRadius: BorderRadius.circular(10),
 
               ),
-              child: const TextField(),
+              child:  TextField(
+                controller: controller,
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  border: InputBorder.none
+                ),
+                readOnly: true,
+                
+              ),
             )
           ],
-        ),
+        ),),
+             
+          ],
+          
+        )
+        
       ),
     );
   }
