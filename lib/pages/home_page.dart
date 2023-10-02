@@ -58,7 +58,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     Slidable(
                       
-                     
                       key: const ValueKey(0),
 
                       startActionPane: ActionPane(
@@ -67,15 +66,20 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: [
                           // 例えば、左側に「Delete」アクションを追加する場合：
                           SlidableAction(
+                            
                             onPressed: (context) {
                               // 削除アクションのロジックをここに追加します。
+                              alarmList.removeAt(index);
+                              setState(() {
+                                
+                              });
                             },
                             backgroundColor:const Color(0xFFFE4A49),
                             foregroundColor: Colors.white,
                             
                             icon: Icons.delete,
                             label: '削除',
-                            
+                          
                           ),
                           // 他のアクションも同様に追加できます。
                         ],
