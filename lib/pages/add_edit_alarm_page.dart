@@ -24,8 +24,9 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
         }
         ),
         actions: [
-          GestureDetector(//onTapが使えるように
+          GestureDetector(//onTapが使えるよう
           child:Container(
+            padding: EdgeInsets.only(right: 20),
             alignment: Alignment.center,
             child: const Text("保存",style: TextStyle(color:Colors.orange),),
           ),
@@ -43,6 +44,20 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
       body: Container(
         height: double.infinity,
         color: Colors.black,
+        child: Row(
+          children: [
+            const Text("時間",style: TextStyle(color: Colors.white),),
+            Container(
+              width: 70,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.orange),
+                borderRadius: BorderRadius.circular(10),
+
+              ),
+              child: const TextField(),
+            )
+          ],
+        ),
       ),
     );
   }
