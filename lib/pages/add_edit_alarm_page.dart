@@ -1,9 +1,11 @@
+import 'package:famous_quote_app/alarm.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class AddEditAlarmPage extends StatefulWidget {
-  const AddEditAlarmPage({super.key});
+  List<Alarm>alarmList;
+ AddEditAlarmPage(this.alarmList);
 
   @override
   State<AddEditAlarmPage> createState() => _AddEditAlarmPageState();
@@ -34,7 +36,10 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
             child: const Text("保存",style: TextStyle(color:Colors.orange),),
           ),
           onTap: (){
+            Alarm alarm =Alarm(alarmTime: DateTime(2023,10,1,selectedTime.hour,selectedTime.minute));
+            widget.alarmList.add(alarm);
             Navigator.pop(context);
+            
           },
           ),
           

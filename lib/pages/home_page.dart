@@ -39,8 +39,11 @@ class _MyHomePageState extends State<MyHomePage> {
               trailing: GestureDetector(
                 child: const Icon(Icons.add,
                     color: Color.fromARGB(255, 32, 134, 243)),
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => AddEditAlarmPage()));
+                onTap: () async{
+                await  Navigator.push(context, MaterialPageRoute(builder: (context) => AddEditAlarmPage(alarmList)));
+                  setState(() {
+                    
+                  });
                 },
               ),
             ),
