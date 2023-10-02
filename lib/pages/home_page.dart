@@ -1,5 +1,6 @@
 import 'package:famous_quote_app/alarm.dart';
 import 'package:famous_quote_app/main.dart';
+import 'package:famous_quote_app/pages/add_edit_alarm_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -38,7 +39,9 @@ class _MyHomePageState extends State<MyHomePage> {
               trailing: GestureDetector(
                 child: const Icon(Icons.add,
                     color: Color.fromARGB(255, 32, 134, 243)),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => AddEditAlarmPage()));
+                },
               ),
             ),
             SliverList(
@@ -70,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             
                             icon: Icons.delete,
                             label: '削除',
+                            
                           ),
                           // 他のアクションも同様に追加できます。
                         ],
