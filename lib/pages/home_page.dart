@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
-
+import 'package:famous_quote_app/sqflite.dart';
 class MyHomePage extends StatefulWidget {
   final String title;
 
@@ -20,10 +20,18 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<Alarm> alarmList = [
-   
-  ];
-
+  List<Alarm> alarmList = [];
+  Future<void> initDb()async{
+    await DbProvider.setDb();
+    setState(() {
+      
+    });
+  }
+  @override
+  void initState(){
+  super.initState();
+  initDb();
+    }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,8 +1,8 @@
 name: famous_quote_app
 description: A new Flutter project.
 
-flite
-publish_to: 'none' 
+
+publish_to: 'none'
 
 version: 1.0.0+1
 
