@@ -2,7 +2,7 @@ import 'package:famous_quote_app/alarm.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
+import 'package:famous_quote_app/sqflite.dart';
 class AddEditAlarmPage extends StatefulWidget {
   List<Alarm>alarmList;
   final int? index;
@@ -52,12 +52,12 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
             alignment: Alignment.center,
             child: const Text("保存",style: TextStyle(color:Colors.orange),),
           ),
-          onTap: (){
+          onTap: ()async{
             Alarm alarm =Alarm(alarmTime: DateTime(2023,10,1,selectedTime.hour,selectedTime.minute));
             if(widget.index !=null){
               widget.alarmList[widget.index!]=alarm;
             }else{
-              widget.alarmList.add(alarm);
+              await DbProvider.insertData(alarm);
             }
             
             Navigator.pop(context);

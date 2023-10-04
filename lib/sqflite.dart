@@ -1,3 +1,4 @@
+import 'package:famous_quote_app/alarm.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 class DbProvider{
@@ -20,5 +21,11 @@ static Future<Database?> setDb()async{
   }else{
     return database;
   }
+}
+static Future<void> insertData(Alarm alarm)async{
+  await database!.insert(tableName, {
+    "alarm_time":alarm.alarmTime.toString(),
+    "is_active":alarm.isActive? 0:1
+  });
 }
 }
