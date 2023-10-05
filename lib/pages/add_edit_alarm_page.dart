@@ -3,10 +3,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:famous_quote_app/sqflite.dart';
+@immutable
 class AddEditAlarmPage extends StatefulWidget {
-  List<Alarm>alarmList;
-  final int? index;
- AddEditAlarmPage(this.alarmList,{this.index});
+ final List<Alarm>alarmList;
+ final int? index;
+ const AddEditAlarmPage(
+  this.alarmList,{
+    Key? key,
+  this.index,
+  }):super(key: key);
 
   @override
   State<AddEditAlarmPage> createState() => _AddEditAlarmPageState();
@@ -48,7 +53,7 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
         actions: [
           GestureDetector(//onTapが使えるよう
           child:Container(
-            padding: EdgeInsets.only(right: 20),
+            padding: const EdgeInsets.only(right: 20),
             alignment: Alignment.center,
             child: const Text("保存",style: TextStyle(color:Colors.orange),),
           ),
@@ -57,7 +62,7 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
             if(widget.index !=null){
               widget.alarmList[widget.index!]=alarm;
             }else{
-              await DbProvider.insertData(alarm);
+             await DbProvider.insertData(alarm);
             }
             
             Navigator.pop(context);
@@ -76,9 +81,9 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
         color: Colors.black,
         child:Column(
           children: [
-            SizedBox(height: 50,),
+            const SizedBox(height: 50,),
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 20.0),
+              padding:  const EdgeInsets.symmetric(horizontal: 20.0),
               child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -93,8 +98,8 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
               child:  TextField(
                 controller: controller,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
+                style: const TextStyle(color: Colors.white),
+                decoration: const InputDecoration(
                   border: InputBorder.none
                 ),
                 readOnly: true,

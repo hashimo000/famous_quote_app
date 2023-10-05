@@ -7,7 +7,7 @@ class DbProvider{
 
   static Future<void>_createTable(Database db ,int version)async{
 
- await db.execute("CREATE TABLE $tableName(id INTEGER PRIMARY KEY AUTOINCREMENT ,alarm_time TEXT,isactive INTENGER)");
+ await db.execute("CREATE TABLE $tableName(id INTEGER PRIMARY KEY AUTOINCREMENT ,alarm_time TEXT,is_active INTEGER)");
 }
 static Future<Database> initDb() async{
   String path = join(await getDatabasesPath(),"alarm_app.db");
@@ -22,10 +22,28 @@ static Future<Database?> setDb()async{
     return database;
   }
 }
-static Future<void> insertData(Alarm alarm)async{
+static Future<void> insertData(Alarm alarm) async {
+  // データベースが初期化されているか確認
+  database ??= await setDb();
+  
   await database!.insert(tableName, {
-    "alarm_time":alarm.alarmTime.toString(),
-    "is_active":alarm.isActive? 0:1
+    "alarm_time": alarm.alarmTime.toString(),
+    "is_active": alarm.isActive ? 0 : 1
   });
+}
+
+static Future<List<Alarm>> getData()async{
+  final List<Map<String,dynamic>> maps=await database!.query(tableName);
+  print(maps);
+  if(maps.length==0){
+    return[];
+  }else{
+    List<Alarm> alarmList=List.generate(maps.length, (index) => Alarm(
+      id: maps[index]["id"],
+      alarmTime: DateTime.parse(maps[index]["alarm_time"]),
+      isActive: maps[index]["is_active"]== 0? true : false
+      ));
+      return alarmList;
+  }
 }
 }

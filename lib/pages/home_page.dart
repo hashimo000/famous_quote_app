@@ -1,12 +1,13 @@
 import 'package:famous_quote_app/alarm.dart';
-import 'package:famous_quote_app/main.dart';
+
 import 'package:famous_quote_app/pages/add_edit_alarm_page.dart';
+import 'package:famous_quote_app/sqflite.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
-import 'package:famous_quote_app/sqflite.dart';
+
 class MyHomePage extends StatefulWidget {
   final String title;
 
@@ -23,6 +24,14 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Alarm> alarmList = [];
   Future<void> initDb()async{
     await DbProvider.setDb();
+    alarmList=await DbProvider.getData();
+    setState(() {
+      
+    });
+  }
+  Future<void> reBuild()async{
+    alarmList=await DbProvider.getData();
+    alarmList.sort((a,b)=>a.alarmTime.compareTo(b.alarmTime));
     setState(() {
       
     });
@@ -48,9 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Color.fromARGB(255, 32, 134, 243)),
                 onTap: () async{
                 await  Navigator.push(context, MaterialPageRoute(builder: (context) => AddEditAlarmPage(alarmList)));
-                  setState(() {
-                    alarmList.sort((a,b)=>a.alarmTime.compareTo(b.alarmTime));
-                  });
+                 reBuild();
                 },
               ),
             ),
@@ -78,9 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             onPressed: (context) {
                               // 削除アクションのロジックをここに追加します。
                               alarmList.removeAt(index);
-                              setState(() {
-                                
-                              });
+                            
                             },
                             backgroundColor:const Color(0xFFFE4A49),
                             foregroundColor: Colors.white,
@@ -116,10 +121,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         onTap: ()async{
                          await Navigator.push(context,MaterialPageRoute(builder: (context)=>AddEditAlarmPage(alarmList,index: index)));
-                          setState(() {
-                            
-                          });
-                        },
+                         setState(() {
+                           reBuild();
+                         });              },
                       ),
                     ),
                     const Divider(
