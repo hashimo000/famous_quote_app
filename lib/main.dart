@@ -1,11 +1,17 @@
 
+import 'package:famous_quote_app/pages/famous_quote_page.dart';
 import 'package:famous_quote_app/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =FlutterLocalNotificationsPlugin();
 void main() {
-   runApp(MyApp());}
+  final app =MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: MyApp());
+  final scope =ProviderScope(child: app);
+   runApp(scope);}
 //DarwinNotificationDetails()
 void notification() async {
   
@@ -28,17 +34,44 @@ void notification() async {
   );
 }
 
+final indexProvider = StateProvider((ref) {
+  return 0;
+});
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+  Widget build(BuildContext context,WidgetRef ref) {
+    final index =ref.watch(indexProvider);
+
+    final items=[
+      BottomNavigationBarItem(
+        icon:Icon(Icons.person),
+        label: "名言",
+        ),
+      BottomNavigationBarItem(
+          icon:Icon(Icons.alarm),
+          label: "アラーム",
+          ),
+      
+    ];
+    final bar =BottomNavigationBar(
+      items:items,
+      backgroundColor: Colors.black,
+      selectedItemColor: Colors.white,
+      unselectedItemColor: Colors.grey,
+      currentIndex: index,
+      onTap: (index){
+        ref.read(indexProvider.notifier).state=index;
+      },
+    );
+    final pages=[
+      Famous_Quote_Page(),
+      MyHomePage(title: "アラーム")
+    ];
+    return Scaffold(
+      body: pages[index],
+      bottomNavigationBar: bar,
+     
     );
   }
 }
