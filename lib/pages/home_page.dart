@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:famous_quote_app/alarm.dart';
+import 'package:famous_quote_app/main.dart';
 
 import 'package:famous_quote_app/pages/add_edit_alarm_page.dart';
 import 'package:famous_quote_app/sqflite.dart';
@@ -22,6 +25,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<Alarm> alarmList = [];
+  Timer?_timer;
+  DateTime time = DateTime.now();
   Future<void> initDb()async{
     await DbProvider.setDb();
     alarmList=await DbProvider.getData();
@@ -40,6 +45,22 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState(){
   super.initState();
   initDb();
+  _timer = Timer.periodic(
+    Duration(seconds: 1),
+    (timer){
+      time=time.add(Duration(seconds: 1));
+      alarmList.forEach((alarm) {
+        if (alarm.isActive == true 
+        && alarm.alarmTime.hour==time.hour
+        && alarm.alarmTime.minute==time.minute
+        && time.second==0
+        ){
+          notification();
+        }
+      });
+    //  notification();
+    }
+  );
     }
   @override
   Widget build(BuildContext context) {
