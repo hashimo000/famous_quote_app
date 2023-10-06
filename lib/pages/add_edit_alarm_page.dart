@@ -74,12 +74,12 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
         ],
         
         
-        backgroundColor: Colors.black,
+        backgroundColor: Color.fromARGB(255, 21, 21, 22),
         title: const Text("push時間"),
       ),
       body: Container(
         height: double.infinity,
-        color: Colors.black,
+        color: Color.fromARGB(255, 21, 21, 22),
         child:Column(
           children: [
             const SizedBox(height: 50,),
