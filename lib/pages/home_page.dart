@@ -82,9 +82,10 @@ class _MyHomePageState extends State<MyHomePage> {
                           // 例えば、左側に「Delete」アクションを追加する場合：
                           SlidableAction(
                             
-                            onPressed: (context) {
+                            onPressed: (context)async {
                               // 削除アクションのロジックをここに追加します。
-                              alarmList.removeAt(index);
+                             await DbProvider.deleteData(alarm.id);
+                             reBuild();
                             
                             },
                             backgroundColor:const Color(0xFFFE4A49),
