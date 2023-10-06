@@ -46,4 +46,13 @@ static Future<List<Alarm>> getData()async{
       return alarmList;
   }
 }
+static Future<void> updateData(Alarm alarm)async{
+  await database!.update(tableName, {
+     "alarm_time": alarm.alarmTime.toString(),
+    "is_active": alarm.isActive ? 0 : 1
+  },
+  where: "id=?",
+  whereArgs: [alarm.id]
+  );
+  }
 }

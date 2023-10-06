@@ -113,11 +113,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         trailing: CupertinoSwitch(
                           value: alarm.isActive,
-                          onChanged: (newValue) {
-                            setState(() {
-                              alarm.isActive = newValue;
-                            });
-                          },
+                          onChanged: (newValue)async {
+                            alarm.isActive=newValue;
+                            await DbProvider.updateData(alarm);
+                            reBuild();
+                          }
                         ),
                         onTap: ()async{
                          await Navigator.push(context,MaterialPageRoute(builder: (context)=>AddEditAlarmPage(alarmList,index: index)));

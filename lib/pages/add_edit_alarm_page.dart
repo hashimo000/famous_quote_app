@@ -60,7 +60,8 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
           onTap: ()async{
             Alarm alarm =Alarm(alarmTime: DateTime(2023,10,1,selectedTime.hour,selectedTime.minute));
             if(widget.index !=null){
-              widget.alarmList[widget.index!]=alarm;
+              alarm.id=widget.alarmList[widget.index!].id;
+              await DbProvider.updateData(alarm);
             }else{
              await DbProvider.insertData(alarm);
             }
