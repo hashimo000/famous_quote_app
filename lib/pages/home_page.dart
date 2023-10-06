@@ -65,12 +65,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(121, 41, 41, 56),
+      backgroundColor: Colors.black,
       body: Center(
         child: CustomScrollView(
           slivers: [
             CupertinoSliverNavigationBar(
-              backgroundColor: Color.fromARGB(110, 21, 21, 22),
+              backgroundColor: Colors.black,
               largeTitle:
                   const Text("通知時間", style: TextStyle(color: Colors.white)),
               trailing: GestureDetector(

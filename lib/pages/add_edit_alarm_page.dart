@@ -44,7 +44,7 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
         leading: GestureDetector(
           child: Container(
           alignment: Alignment.center,
-          child: const Text("キャンセル",style: TextStyle(color: Colors.orange),),
+          child: const Text("キャンセル",style: TextStyle(color: Color.fromARGB(255, 32, 134, 243)),),
         ),
         onTap:(){
           Navigator.pop(context);
@@ -55,7 +55,7 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
           child:Container(
             padding: const EdgeInsets.only(right: 20),
             alignment: Alignment.center,
-            child: const Text("保存",style: TextStyle(color:Colors.orange),),
+            child: const Text("保存",style: TextStyle(color:Color.fromARGB(255, 32, 134, 243)),),
           ),
           onTap: ()async{
             Alarm alarm =Alarm(alarmTime: DateTime(2023,10,1,selectedTime.hour,selectedTime.minute));
@@ -92,7 +92,7 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
             Container(
               width: 70,
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.orange),
+                border: Border.all(color: Color.fromARGB(255, 32, 134, 243)),
                 borderRadius: BorderRadius.circular(10),
 
               ),
