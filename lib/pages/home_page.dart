@@ -7,7 +7,8 @@ import 'package:famous_quote_app/pages/add_edit_alarm_page.dart';
 import 'package:famous_quote_app/sqflite.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:timezone/timezone.dart' as tz;
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
 
@@ -25,15 +26,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<Alarm> alarmList = [];
- 
-
-  Timer? _timer;
-  @override
-void dispose() {
-  _timer?.cancel();
-  super.dispose();
-}
-
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =FlutterLocalNotificationsPlugin();
   DateTime time = DateTime.now();
   Future<void> initDb()async{
     await DbProvider.setDb();
@@ -49,26 +42,52 @@ void dispose() {
       
     });
   }
+  void initializeNotification(){
+    flutterLocalNotificationsPlugin.initialize(
+    const InitializationSettings(
+      android: AndroidInitializationSettings('ic_launcher'),
+      iOS: DarwinInitializationSettings(),
+    ),
+  );
+  }
+  
+void setNotification(int id,DateTime alarmTime){
+  flutterLocalNotificationsPlugin.zonedSchedule(
+    id,"title","body",tz.TZDateTime.from(alarmTime,tz.local).add(Duration(seconds: 3)),
+    NotificationDetails(
+      android: AndroidNotificationDetails("id", "name", importance: Importance.max, priority: Priority.high),
+      iOS: DarwinNotificationDetails(),),
+    uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime
+  );
+}
+
+  void notification() async {
+  
+  await flutterLocalNotificationsPlugin.initialize(
+    const InitializationSettings(
+      android: AndroidInitializationSettings('ic_launcher'),
+      iOS: DarwinInitializationSettings(),
+    ),
+  );
+
+  await flutterLocalNotificationsPlugin.show(
+    1,
+    "arat",
+    "テスト",
+    const NotificationDetails(
+      android: AndroidNotificationDetails(
+          "id", "name", importance: Importance.max, priority: Priority.high),
+      iOS: DarwinNotificationDetails(),
+    ),
+  );
+}
   @override
   void initState(){
   super.initState();
   initDb();
-  _timer = Timer.periodic(
-   const Duration(seconds: 1),
-    (timer) {
-      time = time.add(const Duration(seconds: 1));
-      
-      // forEachを使用するのではなく、for-inループを使用
-      for (var alarm in alarmList) {
-        if (alarm.isActive == true 
-            && alarm.alarmTime.hour == time.hour
-            && alarm.alarmTime.minute == time.minute
-            && time.second == 0) {
-          notification();
-        }
-      }
-    }
-);
+  initializeNotification();
+  
+
 
     }
   @override
@@ -86,8 +105,12 @@ void dispose() {
                 child: const Icon(Icons.add,
                     color: Color.fromARGB(255, 32, 134, 243)),
                 onTap: () async{
-                await  Navigator.push(context, MaterialPageRoute(builder: (context) => AddEditAlarmPage(alarmList)));
+                var result = await  Navigator.push(context, MaterialPageRoute(builder: (context) => AddEditAlarmPage(alarmList)));
+                if (result!=null){
+                  setNotification(result.id,result.alarmTime);
                  reBuild();
+                }
+                
                 },
               ),
             ),

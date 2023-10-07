@@ -4,35 +4,19 @@ import 'package:famous_quote_app/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:timezone/data/latest.dart' as tz;
+import 'package:timezone/timezone.dart';
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =FlutterLocalNotificationsPlugin();
 void main() {
   final app =MaterialApp(
     debugShowCheckedModeBanner: false,
     home: MyApp());
   final scope =ProviderScope(child: app);
+    tz.initializeTimeZones();
+    setLocalLocation(getLocation("Asia/Tokyo"));
    runApp(scope);}
 //DarwinNotificationDetails()
-void notification() async {
-  
-  await flutterLocalNotificationsPlugin.initialize(
-    const InitializationSettings(
-      android: AndroidInitializationSettings('ic_launcher'),
-      iOS: DarwinInitializationSettings(),
-    ),
-  );
 
-  await flutterLocalNotificationsPlugin.show(
-    1,
-    "arat",
-    "テスト",
-    const NotificationDetails(
-      android: AndroidNotificationDetails(
-          "id", "name", importance: Importance.max, priority: Priority.high),
-      iOS: DarwinNotificationDetails(),
-    ),
-  );
-}
 
 final indexProvider = StateProvider((ref) {
   return 0;

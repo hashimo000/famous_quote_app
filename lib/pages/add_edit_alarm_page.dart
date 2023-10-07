@@ -58,15 +58,24 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
             child: const Text("保存",style: TextStyle(color:Color.fromARGB(255, 32, 134, 243)),),
           ),
           onTap: ()async{
-            Alarm alarm =Alarm(alarmTime: DateTime(2023,10,1,selectedTime.hour,selectedTime.minute));
+            DateTime now = DateTime.now();
+            DateTime?alarmTime;
+            if(now.compareTo(selectedTime)==-1){
+              alarmTime=DateTime(selectedTime.year,selectedTime.month,selectedTime.day,selectedTime.hour,selectedTime.minute);
+            }else{
+              alarmTime=DateTime(now.year,now.month,now.day+1,selectedTime.hour,selectedTime.second,now.minute);
+            }
+            Alarm alarm =Alarm(alarmTime: alarmTime);
             if(widget.index !=null){
               alarm.id=widget.alarmList[widget.index!].id;
               await DbProvider.updateData(alarm);
             }else{
-             await DbProvider.insertData(alarm);
+            int id =await DbProvider.insertData(alarm);
+              alarm.id=id;
+
             }
             
-            Navigator.pop(context);
+            Navigator.pop(context,alarm);
             
           },
           ),

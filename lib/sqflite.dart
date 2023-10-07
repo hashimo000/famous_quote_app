@@ -22,7 +22,7 @@ static Future<Database?> setDb()async{
     return database;
   }
 }
-static Future<void> insertData(Alarm alarm) async {
+static Future<int> insertData(Alarm alarm) async {
   // データベースが初期化されているか確認
   database ??= await setDb();
   
@@ -30,6 +30,8 @@ static Future<void> insertData(Alarm alarm) async {
     "alarm_time": alarm.alarmTime.toString(),
     "is_active": alarm.isActive ? 0 : 1
   });
+  final List<Map<String, dynamic>> maps =await database!.query(tableName);
+  return maps.last["id"];
 }
 
 static Future<List<Alarm>> getData()async{
