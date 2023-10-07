@@ -63,7 +63,7 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
             if(now.compareTo(selectedTime)==-1){
               alarmTime=DateTime(selectedTime.year,selectedTime.month,selectedTime.day,selectedTime.hour,selectedTime.minute);
             }else{
-              alarmTime=DateTime(now.year,now.month,now.day+1,selectedTime.hour,selectedTime.second,now.minute);
+              alarmTime=DateTime(now.year,now.month,now.day+1,selectedTime.hour,selectedTime.minute);
             }
             Alarm alarm =Alarm(alarmTime: alarmTime);
             if(widget.index !=null){

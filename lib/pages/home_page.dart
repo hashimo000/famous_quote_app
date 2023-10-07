@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
 void setNotification(int id,DateTime alarmTime){
      Tweet randomTweet = getRandomTweet();
   flutterLocalNotificationsPlugin.zonedSchedule(
-    id,randomTweet.userName,randomTweet.text,tz.TZDateTime.from(alarmTime,tz.local).add(Duration(seconds: 3)),
+    id,randomTweet.userName,randomTweet.text,tz.TZDateTime.from(alarmTime,tz.local),
     NotificationDetails(
       android: AndroidNotificationDetails("id", "name", importance: Importance.max, priority: Priority.high),
       iOS: DarwinNotificationDetails(),),
@@ -90,7 +90,6 @@ void setNotification(int id,DateTime alarmTime){
   initDb();
   initializeNotification();
   
-
 
     }
   @override
