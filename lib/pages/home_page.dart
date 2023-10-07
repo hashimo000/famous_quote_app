@@ -4,6 +4,7 @@ import 'package:famous_quote_app/alarm.dart';
 import 'package:famous_quote_app/main.dart';
 
 import 'package:famous_quote_app/pages/add_edit_alarm_page.dart';
+import 'package:famous_quote_app/pages/famous_quote_page.dart';
 import 'package:famous_quote_app/sqflite.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -50,10 +51,12 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
   );
   }
-  
+
+
 void setNotification(int id,DateTime alarmTime){
+     Tweet randomTweet = getRandomTweet();
   flutterLocalNotificationsPlugin.zonedSchedule(
-    id,"title","body",tz.TZDateTime.from(alarmTime,tz.local).add(Duration(seconds: 3)),
+    id,randomTweet.userName,randomTweet.text,tz.TZDateTime.from(alarmTime,tz.local).add(Duration(seconds: 3)),
     NotificationDetails(
       android: AndroidNotificationDetails("id", "name", importance: Importance.max, priority: Priority.high),
       iOS: DarwinNotificationDetails(),),

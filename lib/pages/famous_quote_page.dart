@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
+import 'dart:math';
 // ツイート
 class Tweet {
   final String userName;
@@ -38,6 +38,11 @@ final models = [ /* あなたのモデルのリスト */
   Tweet('バルトロメオ', 'icon1.png', 'この子分盃!勝手に頂戴いたしますだべ!', ),
 ];
 
+Tweet getRandomTweet() {
+    final random = Random();
+    return models[random.nextInt(models.length)];
+  }
+  Tweet randomTweet = getRandomTweet();
 class Famous_Quote_Page extends StatelessWidget {
   const Famous_Quote_Page({Key? key}) : super(key: key);
 
