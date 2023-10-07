@@ -2,20 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-// ツイート
-// final Shader _linearGradient = LinearGradient(
-//   colors: <Color>[
-//     Color(0xff1A2980),
-//     Color(0xff26D0CE),
-//   ],
-// ).createShader(
-//   Rect.fromLTWH(
-//     0.0,
-//     0.0,
-//     250.0,
-//     70.0,
-//   ),
-// );
 
 class Tweet {
   final String userName;
