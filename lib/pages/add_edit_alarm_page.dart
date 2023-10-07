@@ -74,12 +74,12 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
         ],
         
         
-        backgroundColor: Color.fromARGB(255, 21, 21, 22),
+        backgroundColor:const Color.fromARGB(255, 21, 21, 22),
         title: const Text("push時間"),
       ),
       body: Container(
         height: double.infinity,
-        color: Color.fromARGB(255, 21, 21, 22),
+        color: const Color.fromARGB(255, 21, 21, 22),
         child:Column(
           children: [
             const SizedBox(height: 50,),
@@ -92,7 +92,7 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
             Container(
               width: 70,
               decoration: BoxDecoration(
-                border: Border.all(color: Color.fromARGB(255, 32, 134, 243)),
+                border: Border.all(color:const Color.fromARGB(255, 32, 134, 243)),
                 borderRadius: BorderRadius.circular(10),
 
               ),

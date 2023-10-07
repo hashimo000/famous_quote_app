@@ -35,7 +35,7 @@ static Future<void> insertData(Alarm alarm) async {
 static Future<List<Alarm>> getData()async{
   final List<Map<String,dynamic>> maps=await database!.query(tableName);
   print(maps);
-  if(maps.length==0){
+  if(maps.isEmpty==0){
     return[];
   }else{
     List<Alarm> alarmList=List.generate(maps.length, (index) => Alarm(

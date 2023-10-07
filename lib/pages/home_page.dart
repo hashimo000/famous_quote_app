@@ -25,7 +25,15 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<Alarm> alarmList = [];
-  Timer?_timer;
+ 
+
+  Timer? _timer;
+  @override
+void dispose() {
+  _timer?.cancel();
+  super.dispose();
+}
+
   DateTime time = DateTime.now();
   Future<void> initDb()async{
     await DbProvider.setDb();
@@ -46,21 +54,22 @@ class _MyHomePageState extends State<MyHomePage> {
   super.initState();
   initDb();
   _timer = Timer.periodic(
-    Duration(seconds: 1),
-    (timer){
-      time=time.add(Duration(seconds: 1));
-      alarmList.forEach((alarm) {
+   const Duration(seconds: 1),
+    (timer) {
+      time = time.add(const Duration(seconds: 1));
+      
+      // forEachを使用するのではなく、for-inループを使用
+      for (var alarm in alarmList) {
         if (alarm.isActive == true 
-        && alarm.alarmTime.hour==time.hour
-        && alarm.alarmTime.minute==time.minute
-        && time.second==0
-        ){
+            && alarm.alarmTime.hour == time.hour
+            && alarm.alarmTime.minute == time.minute
+            && time.second == 0) {
           notification();
         }
-      });
-    //  notification();
+      }
     }
-  );
+);
+
     }
   @override
   Widget build(BuildContext context) {

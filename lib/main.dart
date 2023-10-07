@@ -26,7 +26,7 @@ void notification() async {
     1,
     "arat",
     "テスト",
-    NotificationDetails(
+    const NotificationDetails(
       android: AndroidNotificationDetails(
           "id", "name", importance: Importance.max, priority: Priority.high),
       iOS: DarwinNotificationDetails(),
@@ -44,11 +44,11 @@ class MyApp extends ConsumerWidget {
     final index =ref.watch(indexProvider);
 
     final items=[
-      BottomNavigationBarItem(
+      const BottomNavigationBarItem(
         icon:Icon(Icons.person),
         label: "名言",
         ),
-      BottomNavigationBarItem(
+      const BottomNavigationBarItem(
           icon:Icon(Icons.alarm),
           label: "アラーム",
           ),
@@ -65,8 +65,8 @@ class MyApp extends ConsumerWidget {
       },
     );
     final pages=[
-      Famous_Quote_Page(),
-      MyHomePage(title: "アラーム")
+      const Famous_Quote_Page(),
+      const MyHomePage(title: "アラーム")
     ];
     return Scaffold(
       body: pages[index],
