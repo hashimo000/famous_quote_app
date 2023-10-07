@@ -1,7 +1,22 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
+
 // ツイート
+// final Shader _linearGradient = LinearGradient(
+//   colors: <Color>[
+//     Color(0xff1A2980),
+//     Color(0xff26D0CE),
+//   ],
+// ).createShader(
+//   Rect.fromLTWH(
+//     0.0,
+//     0.0,
+//     250.0,
+//     70.0,
+//   ),
+// );
+
 class Tweet {
   final String userName;
   final String iconUrl;
@@ -14,7 +29,7 @@ class Tweet {
 // 適当なモデル
 final models = [ /* あなたのモデルのリスト */ 
   Tweet('ルフィ', 'icon1.png', '海賊王におれはなる！', ),
-  Tweet('ゾロ', 'icon2.png', 'おれはもう！二度と敗けねェから！', ),
+  Tweet('Messi', 'icon2.png', 'GOAT', ),
   Tweet('ナミ', 'icon3.png', 'もう背中向けられないじゃないっ！', ),
   Tweet('ウソップ', 'icon4.png', 'お前らの”伝説のヒーロー”になってやる！', ),
   Tweet('サンジ', 'icon5.png', 'たとえ死んでもおれは女は蹴らん・・・！', ),
@@ -68,7 +83,7 @@ class Famous_Quote_Page extends StatelessWidget {
     alignment: Alignment.centerLeft,
     child: Text(
       '${model.userName}   ',
-      style: const TextStyle(color: Color.fromARGB(255, 3, 3, 3)),
+      style: const TextStyle(color: Colors.white),
     ),
   );
   final text = Container(
@@ -76,14 +91,14 @@ class Famous_Quote_Page extends StatelessWidget {
     alignment: Alignment.centerLeft,
     child: Text(
       model.text,
-      style: const TextStyle(fontWeight: FontWeight.bold),
+      style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
     ),
   );
       return Container(
       padding: const EdgeInsets.all(1),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.blue),
-        color: Colors.white,
+        border: Border.all(color: Colors.black),
+        color: Colors.transparent,
       ),
       width: double.infinity,
       height: 120,
@@ -112,11 +127,23 @@ class Famous_Quote_Page extends StatelessWidget {
     );
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("名言集"),
-        backgroundColor: Color.fromARGB(255, 4, 6, 17),
-      ),
-      body: list,
+      backgroundColor: Colors.black,
+      
+      body: Container(
+                decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            stops: [0.1, 0.8,],
+            colors: [
+               // Replace with your start color
+               Color(0xff6033b3), Color(0xff9c27b0)
+            ],
+          ),
+        ),
+
+        child:list
+        ),
     );
   }
 }

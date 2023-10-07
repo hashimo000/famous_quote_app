@@ -58,7 +58,7 @@ void setNotification(int id,DateTime alarmTime){
         leading: GestureDetector(
           child: Container(
           alignment: Alignment.center,
-          child: const Text("キャンセル",style: TextStyle(color: Color.fromARGB(255, 32, 134, 243)),),
+          child: const Text("キャンセル",style: TextStyle(color: Color.fromARGB(255, 32, 134, 243),fontSize: 20),),
         ),
         onTap:(){
           Navigator.pop(context);
@@ -69,7 +69,7 @@ void setNotification(int id,DateTime alarmTime){
           child:Container(
             padding: const EdgeInsets.only(right: 20),
             alignment: Alignment.center,
-            child: const Text("保存",style: TextStyle(color:Color.fromARGB(255, 32, 134, 243)),),
+            child: const Text("保存",style: TextStyle(color:Color.fromARGB(255, 32, 134, 243),fontSize: 20),),
           ),
           onTap: ()async{
             DateTime now = DateTime.now();
@@ -111,13 +111,13 @@ void setNotification(int id,DateTime alarmTime){
               child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text("時間",style: TextStyle(color: Colors.white),),
+            const Text("時間を入力 →",style: TextStyle(color: Colors.white,fontSize: 20),),
             Container(
               width: 70,
               decoration: BoxDecoration(
                 border: Border.all(color:const Color.fromARGB(255, 32, 134, 243)),
                 borderRadius: BorderRadius.circular(10),
-
+                
               ),
               child:  TextField(
                 controller: controller,

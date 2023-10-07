@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:famous_quote_app/alarm.dart';
-
+import 'package:flutter/material.dart';
 import 'package:famous_quote_app/pages/add_edit_alarm_page.dart';
 import 'package:famous_quote_app/pages/famous_quote_page.dart';
 import 'package:famous_quote_app/sqflite.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -95,12 +95,24 @@ void setNotification(int id,DateTime alarmTime){
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: Center(
+      body:Container(
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            stops: [0.1, 0.8,],
+            colors: [
+               // Replace with your start color
+               Color(0xff6033b3), Color(0xff9c27b0)
+            ],
+          ),
+        ),
+      
+      child: Center(
         child: CustomScrollView(
           slivers: [
             CupertinoSliverNavigationBar(
-              backgroundColor: Colors.black,
+              backgroundColor:  Color(0xff6033b3), 
               largeTitle:
                   const Text("通知時間", style: TextStyle(color: Colors.white)),
               trailing: GestureDetector(
@@ -192,22 +204,10 @@ void setNotification(int id,DateTime alarmTime){
             )
           ],
         ),
-        //     child: Column(
-        //       mainAxisAlignment: MainAxisAlignment.center,
-        //       children: [
-        //         ElevatedButton(
-        //            onPressed: () {
-        //             notification();  // ここでnotification関数を呼び出します
-        // ScaffoldMessenger.of(context).showSnackBar(
-        //   const SnackBar(content: Text("ボタンを押下しました")),
-        // );  // また、SnackBarを表示してボタンが押されたことをユーザーにフィードバックするように追加します
-        //            },
-        //            child: const Text('+1 いいね!'),
-
-        //         ),
-        //       ],
-        //     ),
+       
       ),
+      )
     );
+    
   }
 }

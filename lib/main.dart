@@ -30,7 +30,7 @@ class MyApp extends ConsumerWidget {
     final items=[
       const BottomNavigationBarItem(
         icon:Icon(Icons.person),
-        label: "名言",
+        label: "名言集",
         ),
       const BottomNavigationBarItem(
           icon:Icon(Icons.alarm),
