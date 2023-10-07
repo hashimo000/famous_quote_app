@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:famous_quote_app/alarm.dart';
-import 'package:famous_quote_app/main.dart';
 
 import 'package:famous_quote_app/pages/add_edit_alarm_page.dart';
 import 'package:famous_quote_app/pages/famous_quote_page.dart';
@@ -54,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 void setNotification(int id,DateTime alarmTime){
+   flutterLocalNotificationsPlugin.cancel(id);
      Tweet randomTweet = getRandomTweet();
   flutterLocalNotificationsPlugin.zonedSchedule(
     id,randomTweet.userName,randomTweet.text,tz.TZDateTime.from(alarmTime,tz.local),
@@ -108,7 +108,7 @@ void setNotification(int id,DateTime alarmTime){
                     color: Color.fromARGB(255, 32, 134, 243)),
                 onTap: () async{
                 var result = await  Navigator.push(context, MaterialPageRoute(builder: (context) => AddEditAlarmPage(alarmList)));
-                if (result!=null){
+                if (result != null){
                   setNotification(result.id,result.alarmTime);
                  reBuild();
                 }

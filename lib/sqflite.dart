@@ -31,7 +31,7 @@ static Future<int> insertData(Alarm alarm) async {
     "is_active": alarm.isActive ? 0 : 1
   });
   final List<Map<String, dynamic>> maps =await database!.query(tableName);
-  return maps.last["id"];
+  return maps.last['id'];
 }
 
 static Future<List<Alarm>> getData()async{

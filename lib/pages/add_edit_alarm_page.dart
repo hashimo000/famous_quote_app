@@ -1,8 +1,12 @@
 import 'package:famous_quote_app/alarm.dart';
+import 'package:famous_quote_app/main.dart';
+import 'package:famous_quote_app/pages/famous_quote_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:intl/intl.dart';
 import 'package:famous_quote_app/sqflite.dart';
+import 'package:timezone/timezone.dart' as tz;
 @immutable
 class AddEditAlarmPage extends StatefulWidget {
  final List<Alarm>alarmList;
@@ -21,7 +25,17 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
   TextEditingController controller=TextEditingController();
   DateTime selectedTime = DateTime.now();
 
-
+void setNotification(int id,DateTime alarmTime){
+   flutterLocalNotificationsPlugin.cancel(id);
+     Tweet randomTweet = getRandomTweet();
+  flutterLocalNotificationsPlugin.zonedSchedule(
+    id,randomTweet.userName,randomTweet.text,tz.TZDateTime.from(alarmTime,tz.local),
+    NotificationDetails(
+      android: AndroidNotificationDetails("id", "name", importance: Importance.max, priority: Priority.high),
+      iOS: DarwinNotificationDetails(),),
+    uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime
+  );
+}
   void initEditAlarm(){
     if(widget.index !=null){
       selectedTime=widget.alarmList[widget.index!].alarmTime;
@@ -59,11 +73,11 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
           ),
           onTap: ()async{
             DateTime now = DateTime.now();
-            DateTime?alarmTime;
+            DateTime? alarmTime;
             if(now.compareTo(selectedTime)==-1){
               alarmTime=DateTime(selectedTime.year,selectedTime.month,selectedTime.day,selectedTime.hour,selectedTime.minute);
             }else{
-              alarmTime=DateTime(now.year,now.month,now.day+1,selectedTime.hour,selectedTime.minute);
+              alarmTime=DateTime(now.year, now.month, now.day+1, selectedTime.hour, selectedTime.minute);
             }
             Alarm alarm =Alarm(alarmTime: alarmTime);
             if(widget.index !=null){
@@ -74,7 +88,7 @@ class _AddEditAlarmPageState extends State<AddEditAlarmPage> {
               alarm.id=id;
 
             }
-            
+                setNotification(alarm.id, alarm.alarmTime);
             Navigator.pop(context,alarm);
             
           },
