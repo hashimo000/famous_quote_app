@@ -30,7 +30,7 @@ void setNotification(int id,DateTime alarmTime){
      Tweet randomTweet = getRandomTweet();
   flutterLocalNotificationsPlugin.zonedSchedule(
     id,randomTweet.userName,randomTweet.text,tz.TZDateTime.from(alarmTime,tz.local),
-    NotificationDetails(
+    const NotificationDetails(
       android: AndroidNotificationDetails("id", "name", importance: Importance.max, priority: Priority.high),
       iOS: DarwinNotificationDetails(),),
     uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime
