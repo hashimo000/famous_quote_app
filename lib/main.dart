@@ -1,6 +1,7 @@
 
 import 'package:famous_quote_app/pages/famous_quote_page.dart';
 import 'package:famous_quote_app/pages/home_page.dart';
+import 'package:famous_quote_app/pages/useagle_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -36,6 +37,10 @@ class MyApp extends ConsumerWidget {
           icon:Icon(Icons.alarm),
           label: "アラーム",
           ),
+      const BottomNavigationBarItem(
+          icon:Icon(Icons.alarm),
+          label: "設定",
+          ),
       
     ];
     final bar =BottomNavigationBar(
@@ -50,8 +55,10 @@ class MyApp extends ConsumerWidget {
     );
     final pages=[
       const Famous_Quote_Page(),
-      const MyHomePage(title: "アラーム")
-    ];
+      const MyHomePage(title: "アラーム"),
+      const UseaglePadge()
+ 
+ ];
     return Scaffold(
       body: pages[index],
       bottomNavigationBar: bar,
