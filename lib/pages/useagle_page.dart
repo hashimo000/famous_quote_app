@@ -20,14 +20,25 @@ class InstructionPage extends StatefulWidget {
 }
 
 class _InstructionPageState extends State<InstructionPage> {
-  int currentPage = 0;
-  final List<String> instructions = [
-    'Step 1: Do this',
-    'Step 2: Do that',
-    'Step 3: Do something else',
-    // Add as many steps as you need
-  ];
+   int currentPage = 0;
+final Widget page1 = Image.asset('assets/images/S__98926597.jpg');
+final Widget page2 = Image.asset('assets/images/insort.jpg');
+final Widget page3 = Image.asset('assets/images/select time.jpg');
+final Widget page4 = Image.asset('assets/images/savebotton.jpg');
+final Widget page5 = Image.asset('assets/images/add time.jpg');
+final Widget page6 = Image.asset('assets/images/quote page.jpg');
+  late final List<Widget> instructions;
 
+  _InstructionPageState() {
+    instructions = [
+      page1,
+      page2,
+      page3,
+      page4,
+      page5,
+      page6,
+    ];
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,11 +61,10 @@ class _InstructionPageState extends State<InstructionPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      
                         instructions[index],
-                        style: TextStyle(fontSize: 24),
-                        textAlign: TextAlign.center,
-                      ),
+                        
+                      
                       // You might want to add images/icons here
                     ],
                   ),
