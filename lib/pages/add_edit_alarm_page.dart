@@ -98,7 +98,7 @@ void setNotification(int id,DateTime alarmTime){
         
         
         backgroundColor:const Color.fromARGB(255, 21, 21, 22),
-        title: const Text("push時間"),
+        title: const Text("通知時間"),
       ),
       body: Container(
         height: double.infinity,

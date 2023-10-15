@@ -38,8 +38,8 @@ class MyApp extends ConsumerWidget {
           label: "アラーム",
           ),
       const BottomNavigationBarItem(
-          icon:Icon(Icons.alarm),
-          label: "設定",
+          icon:Icon(Icons.description),
+          label: "使用方法",
           ),
       
     ];
