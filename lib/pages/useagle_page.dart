@@ -31,12 +31,45 @@ final Widget page6 = Image.asset('assets/images/quote page.jpg');
 
   _InstructionPageState() {
     instructions = [
-      page1,
-      page2,
-      page3,
-      page4,
-      page5,
-      page6,
+      Column(
+        children: [
+          Text('1', style: TextStyle(fontSize: 24), textAlign: TextAlign.center),
+          page1,
+          Text('説明1', style: TextStyle(fontSize: 24), textAlign: TextAlign.center),
+        ],
+      ),
+      Column(
+        children: [
+          Text('2', style: TextStyle(fontSize: 24), textAlign: TextAlign.center),
+          page2,
+          Text('説明1', style: TextStyle(fontSize: 24), textAlign: TextAlign.center),
+        ],
+      ), Column(
+        children: [
+          Text('3', style: TextStyle(fontSize: 24), textAlign: TextAlign.center),
+          page3,
+          Text('説明1', style: TextStyle(fontSize: 24), textAlign: TextAlign.center),
+        ],
+      ), Column(
+        children: [
+          Text('4', style: TextStyle(fontSize: 24), textAlign: TextAlign.center),
+          page4,
+          Text('説明1', style: TextStyle(fontSize: 24), textAlign: TextAlign.center),
+        ],
+      ), Column(
+        children: [
+          Text('5', style: TextStyle(fontSize: 24), textAlign: TextAlign.center),
+          page5,
+          Text('説明1', style: TextStyle(fontSize: 24), textAlign: TextAlign.center),
+        ],
+      ),
+      Column(
+        children: [
+          Text('6', style: TextStyle(fontSize: 24), textAlign: TextAlign.center),
+          page6,
+          Text('説明1', style: TextStyle(fontSize: 24), textAlign: TextAlign.center),
+        ],
+      ),
     ];
   }
   @override
