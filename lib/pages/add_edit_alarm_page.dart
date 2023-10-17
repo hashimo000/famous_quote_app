@@ -96,7 +96,7 @@ void setNotification(int id,DateTime alarmTime){
           
         ],
         flexibleSpace: Container(
-    decoration: BoxDecoration(
+    decoration:const BoxDecoration(
       gradient: LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
@@ -110,7 +110,7 @@ void setNotification(int id,DateTime alarmTime){
       ),
       body: Container(
         height: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
       gradient: LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
@@ -129,7 +129,7 @@ void setNotification(int id,DateTime alarmTime){
             Container(
               width: 70,
               decoration: BoxDecoration(
-                border: Border.all(color:Color.fromARGB(255, 245, 246, 247)),
+                border: Border.all(color:const Color.fromARGB(255, 245, 246, 247)),
                 borderRadius: BorderRadius.circular(10),
                 
               ),
