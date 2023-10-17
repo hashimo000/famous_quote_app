@@ -58,7 +58,7 @@ void setNotification(int id,DateTime alarmTime){
         leading: GestureDetector(
           child: Container(
           alignment: Alignment.center,
-          child: const Text("キャンセル",style: TextStyle(color: Color.fromARGB(255, 32, 134, 243),fontSize: 20),),
+          child: const Text("キャンセル",style: TextStyle(color: Color.fromARGB(255, 239, 241, 244),fontSize: 20),),
         ),
         onTap:(){
           Navigator.pop(context);
@@ -69,7 +69,7 @@ void setNotification(int id,DateTime alarmTime){
           child:Container(
             padding: const EdgeInsets.only(right: 20),
             alignment: Alignment.center,
-            child: const Text("保存",style: TextStyle(color:Color.fromARGB(255, 32, 134, 243),fontSize: 20),),
+            child: const Text("保存",style: TextStyle(color:Color.fromARGB(255, 252, 252, 253),fontSize: 20),),
           ),
           onTap: ()async{
             DateTime now = DateTime.now();
@@ -95,14 +95,28 @@ void setNotification(int id,DateTime alarmTime){
           ),
           
         ],
+        flexibleSpace: Container(
+    decoration: BoxDecoration(
+      gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [Colors.blue, Colors.purple],
+      ),
+    ),
+  ),
         
-        
-        backgroundColor:const Color.fromARGB(255, 21, 21, 22),
+       
         title: const Text("通知時間"),
       ),
       body: Container(
         height: double.infinity,
-        color: const Color.fromARGB(255, 21, 21, 22),
+      decoration: BoxDecoration(
+      gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [Colors.blue, Colors.purple],
+      ),
+    ),
         child:Column(
           children: [
             const SizedBox(height: 50,),
@@ -115,7 +129,7 @@ void setNotification(int id,DateTime alarmTime){
             Container(
               width: 70,
               decoration: BoxDecoration(
-                border: Border.all(color:const Color.fromARGB(255, 32, 134, 243)),
+                border: Border.all(color:Color.fromARGB(255, 245, 246, 247)),
                 borderRadius: BorderRadius.circular(10),
                 
               ),

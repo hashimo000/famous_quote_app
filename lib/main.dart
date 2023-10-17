@@ -35,7 +35,7 @@ class MyApp extends ConsumerWidget {
         ),
       const BottomNavigationBarItem(
           icon:Icon(Icons.alarm),
-          label: "アラーム",
+          label: "通知",
           ),
       const BottomNavigationBarItem(
           icon:Icon(Icons.description),
