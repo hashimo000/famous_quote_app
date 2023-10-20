@@ -173,12 +173,22 @@ void setNotification(int id,DateTime alarmTime){
                           // ここに右側のアクションを追加します。
                         ],
                       ),
-                      child: ListTile(
-                        title: Text(
-                          DateFormat("H:mm").format(alarm.alarmTime),
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 50),
-                        ),
+                       child: ListTile(
+                        title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              DateFormat("yyyy/MM/dd").format(alarm.alarmTime), // 日付の表示
+                              style: const TextStyle(
+                                color: Colors.white, fontSize: 25), // 必要に応じてフォントサイズを調整
+                                 ),
+                                 Text(
+                                  DateFormat("H:mm").format(alarm.alarmTime), // 時刻の表示
+                                  style: const TextStyle(
+                                    color: Colors.white, fontSize: 50),
+                                    ),
+                                    ],
+                                    ),
                         trailing: CupertinoSwitch(
                           value: alarm.isActive,
                           onChanged: (newValue)async {

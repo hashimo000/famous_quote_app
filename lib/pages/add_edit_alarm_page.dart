@@ -146,7 +146,7 @@ void setNotification(int id,DateTime alarmTime){
                    (BuildContext context) {
                     return CupertinoDatePicker(
                       initialDateTime: selectedTime,
-                      mode: CupertinoDatePickerMode.time,
+                      mode: CupertinoDatePickerMode.dateAndTime,
                       onDateTimeChanged: (newDate){
                         String  time =DateFormat("H:mm").format(newDate);
                         selectedTime =newDate;
