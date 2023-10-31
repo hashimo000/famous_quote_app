@@ -44,7 +44,8 @@
  
  通知動画
 
- https://github.com/hashimo000/famous_quote_app/assets/103234756/3f7428c9-5fbb-4325-a894-186eb1018f6d
+ https://github.com/hashimo000/famous_quote_app/assets/103234756/cb1d5ee1-2595-4ba2-8943-eca1f40ef1d0
+
 
 UI動画
 
