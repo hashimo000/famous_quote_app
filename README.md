@@ -42,12 +42,5 @@
 
 ## デモ動画
  
- 通知動画
-
- https://github.com/hashimo000/famous_quote_app/assets/103234756/cb1d5ee1-2595-4ba2-8943-eca1f40ef1d0
-
-
-UI動画
-
 
 https://github.com/hashimo000/famous_quote_app/assets/103234756/4db2bb99-d13c-4c7f-adec-739f257c5c2a
