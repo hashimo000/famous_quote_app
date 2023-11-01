@@ -42,4 +42,4 @@
 
 ## デモ動画
  
-https://github.com/hashimo000/famous_quote_app/assets/103234756/4db2bb99-d13c-4c7f-adec-739f257c5c2a
+https://github.com/hashimo000/famous_quote_app/assets/103234756/cca65def-919b-4a04-b900-1f68eced0fcb
