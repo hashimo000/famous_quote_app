@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initializeNotification(){
     flutterLocalNotificationsPlugin.initialize(
     const InitializationSettings(
-      android: AndroidInitializationSettings('ic_launcher'),
+      android: AndroidInitializationSettings('launcher_icon'),
       iOS: DarwinInitializationSettings(),
     ),
   );
@@ -68,7 +68,7 @@ void setNotification(int id,DateTime alarmTime){
   
   await flutterLocalNotificationsPlugin.initialize(
     const InitializationSettings(
-      android: AndroidInitializationSettings('ic_launcher'),
+      android: AndroidInitializationSettings('launcher.icon'),
       iOS: DarwinInitializationSettings(),
     ),
   );
