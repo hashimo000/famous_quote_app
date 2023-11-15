@@ -8,7 +8,7 @@
 PRODUCT_NAME = famous_quote_app
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.famousQuoteApp
+PRODUCT_BUNDLE_IDENTIFIER = com.newexample.famousQuoteApp
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2023 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2023 com.newexample. All rights reserved.
