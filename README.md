@@ -43,3 +43,6 @@
 ## デモ動画
  
 https://github.com/hashimo000/famous_quote_app/assets/103234756/cca65def-919b-4a04-b900-1f68eced0fcb
+
+##Google Playにアプリをリリース！
+https://play.google.com/store/apps/details?id=com.newexample.famous_quote_app
