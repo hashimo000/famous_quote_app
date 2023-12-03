@@ -90,7 +90,7 @@ Widget build(BuildContext context) {
           colors: [Colors.blue, Colors.purple],
         ),
       ),
-      child: Column( // ここでColumnウィジェットをContainerのchildとして指定します。
+      child: Column( 
         children: [
           Expanded(
             child: PageView.builder(

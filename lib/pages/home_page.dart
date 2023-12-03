@@ -146,11 +146,11 @@ void setNotification(int id,DateTime alarmTime){
                         extentRatio: 0.2,//削除スライドの大きさ（この場合画面の横幅の0.２倍）
                         motion: const ScrollMotion(),
                         children: [
-                          // 例えば、左側に「Delete」アクションを追加する場合：
+                         
                           SlidableAction(
                             
                             onPressed: (context)async {
-                              // 削除アクションのロジックをここに追加します。
+                              
                              await DbProvider.deleteData(alarm.id);
                              reBuild();
                             
@@ -162,15 +162,15 @@ void setNotification(int id,DateTime alarmTime){
                             label: '削除',
                           
                           ),
-                          // 他のアクションも同様に追加できます。
+                   
                         ],
                       ),
 
-                      // 必要に応じて、右側にもアクションを追加できます。
+                      
                       endActionPane: const ActionPane(
                         motion:  ScrollMotion(),
                         children:  [
-                          // ここに右側のアクションを追加します。
+                    
                         ],
                       ),
                        child: ListTile(
@@ -180,7 +180,7 @@ void setNotification(int id,DateTime alarmTime){
                             Text(
                               DateFormat("yyyy/MM/dd").format(alarm.alarmTime), // 日付の表示
                               style: const TextStyle(
-                                color: Colors.white, fontSize: 25), // 必要に応じてフォントサイズを調整
+                                color: Colors.white, fontSize: 25), // フォントサイズを調整
                                  ),
                                  Text(
                                   DateFormat("H:mm").format(alarm.alarmTime), // 時刻の表示
