@@ -7,17 +7,16 @@
 ## 環境
 - Xcode15
 - iOS17
-- CocoaPods1.13.0
-
-
+- Android Studio 2022.3.1 Patch 1
 
 ## 使用技術
 - flutter
 - sqflite
-
+- git
+- github
 
 ## 製作期間
-2週間ほどで作りました。その後継続的にコードの修正、新規機能を加えています。（App StoreとGoogle Playで、審査待ち）
+2週間ほどで作りました。その後継続的にコードの修正、新規機能を加えています。（App Storeで、審査待ち）
 
 ## アプリの特徴
 - 好きな時間に、ランダムに名言を通知を鳴らしてくれる。
@@ -43,3 +42,7 @@
 ## デモ動画
  
 https://github.com/hashimo000/famous_quote_app/assets/103234756/cca65def-919b-4a04-b900-1f68eced0fcb
+
+## Google Playにアプリをリリース！URLをクリック！
+
+https://play.google.com/store/apps/details?id=com.newexample.famous_quote_app
