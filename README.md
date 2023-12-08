@@ -10,7 +10,7 @@
 - Android Studio 2022.3.1 Patch 1
 
 ## 使用技術
-- flutter
+- Flutter
 - sqflite
 - git
 - github
