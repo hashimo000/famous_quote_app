@@ -7,6 +7,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart';
+import 'package:famous_quote_app/pages/others_page.dart';
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =FlutterLocalNotificationsPlugin();
 void main() {
   final app =MaterialApp(
@@ -41,6 +42,9 @@ class MyApp extends ConsumerWidget {
           icon:Icon(Icons.description),
           label: "使用方法",
           ),
+      const BottomNavigationBarItem(
+          icon:Icon(Icons.description),
+          label: "その他", ),
       
     ];
     final bar =BottomNavigationBar(
@@ -56,8 +60,8 @@ class MyApp extends ConsumerWidget {
     final pages=[
       const Famous_Quote_Page(),
       const MyHomePage(title: "アラーム"),
-      const UseaglePadge()
- 
+      const UseaglePadge(),
+      const OthersPage()
  ];
     return Scaffold(
       body: pages[index],
