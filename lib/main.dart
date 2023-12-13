@@ -43,15 +43,15 @@ class MyApp extends ConsumerWidget {
           label: "使用方法",
           ),
       const BottomNavigationBarItem(
-          icon:Icon(Icons.description),
+          icon:Icon(Icons.build),
           label: "その他", ),
       
     ];
     final bar =BottomNavigationBar(
       items:items,
-      backgroundColor: Colors.black,
-      selectedItemColor: Colors.white,
-      unselectedItemColor: Colors.grey,
+      backgroundColor: const Color.fromARGB(255, 242, 12, 12),
+      selectedItemColor: Color.fromARGB(255, 14, 236, 107),
+      unselectedItemColor: Color.fromARGB(255, 75, 4, 241),
       currentIndex: index,
       onTap: (index){
         ref.read(indexProvider.notifier).state=index;
