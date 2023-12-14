@@ -19,15 +19,19 @@ class OthersPage extends StatelessWidget {
           Expanded(  
             child: ListView(
               children: <Widget>[
-                Center(
+                 Padding(
+                  padding: const EdgeInsets.only(top: 50.0),
+                  child:Center(
                   child: ElevatedButton(
                     onPressed: () => _launchUrl(url), 
-                    child: const Text('問い合わせ'),
+                    child: const Text('お問い合わせ'),
                   ),
                 ),
+                 )
               ],
             ),
           ),
+      
         ],
       ),
     );
