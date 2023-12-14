@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class OthersPage extends StatelessWidget {
-  // コンパイル時定数ではないため、constキーワードを削除
   final Uri url = Uri.parse('https://forms.gle/QyrNd6jFdikaPaLb7'); 
 
-  // コンストラクタからconstを削除
   OthersPage({super.key});
 
   @override
