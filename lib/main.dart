@@ -52,7 +52,7 @@ class MyApp extends ConsumerWidget {
       items:items,
       backgroundColor: Color.fromARGB(255, 7, 7, 8),
       selectedItemColor: Color.fromARGB(255, 10, 6, 248),
-      unselectedItemColor: Color.fromARGB(255, 13, 13, 13),
+      unselectedItemColor: Color.fromARGB(255, 247, 246, 246),
       currentIndex: index,
       onTap: (index){
         ref.read(indexProvider.notifier).state=index;
