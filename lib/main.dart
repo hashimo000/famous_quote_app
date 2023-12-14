@@ -61,7 +61,7 @@ class MyApp extends ConsumerWidget {
       const Famous_Quote_Page(),
       const MyHomePage(title: "アラーム"),
       const UseaglePadge(),
-      const OthersPage()
+     OthersPage()
  ];
     return Scaffold(
       body: pages[index],
