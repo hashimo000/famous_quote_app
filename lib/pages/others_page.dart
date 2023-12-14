@@ -12,7 +12,7 @@ class OthersPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('使用方法'),
+        title: const Text('その他'),
       ),
       body: Column(
         children: <Widget>[
