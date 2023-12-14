@@ -48,10 +48,11 @@ class MyApp extends ConsumerWidget {
       
     ];
     final bar =BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
       items:items,
-      backgroundColor: Color.fromARGB(255, 237, 236, 240),
-      selectedItemColor: Color.fromARGB(255, 6, 6, 6),
-      unselectedItemColor: Color.fromARGB(255, 75, 4, 241),
+      backgroundColor: Color.fromARGB(255, 7, 7, 8),
+      selectedItemColor: Color.fromARGB(255, 10, 6, 248),
+      unselectedItemColor: Color.fromARGB(255, 13, 13, 13),
       currentIndex: index,
       onTap: (index){
         ref.read(indexProvider.notifier).state=index;
