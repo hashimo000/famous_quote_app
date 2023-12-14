@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 class OthersPage extends StatelessWidget {
+   final String url = 'https://qiita.com/advent-calendar/2023/kaiyo-tech';  
   const OthersPage({super.key});
 
   @override
@@ -14,13 +15,12 @@ class OthersPage extends StatelessWidget {
           Expanded(  
             child: ListView(
               children: const <Widget>[
-                Text('Item 1'),
-                Text('Item 1'),
-                Text('Item 1'),
-                Text('Item 1'),
-                Text('Item 1'),
-                Text('Item 1'),
-                Text('Item 1'),
+                Center(
+        
+          child: Text('お問い合わせ'),
+        
+      ),
+               
               
               ],
             ),
