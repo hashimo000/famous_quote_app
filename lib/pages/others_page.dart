@@ -18,7 +18,7 @@ class OthersPage extends StatelessWidget {
             child: ListView(
               children: <Widget>[
                  Padding(
-                  padding: const EdgeInsets.only(top: 50.0),
+                  padding: const EdgeInsets.only(top: 51.0),
                   child:Center(
                   child: ElevatedButton(
                     onPressed: () => _launchUrl(url), 
