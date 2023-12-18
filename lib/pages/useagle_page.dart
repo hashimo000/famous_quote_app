@@ -64,7 +64,7 @@ final Widget page6 = Image.asset('assets/images/quote page.jpg');
         children: [
           page5,
           const Text('説明5', style: TextStyle(fontSize: 27,color: Colors.white), textAlign: TextAlign.center),
-          const Text('保存したら通知時間が追加されるよ！', style: TextStyle(fontSize: 27,color: Colors.white), textAlign: TextAlign.center),
+          const Text('保存したら通知時間が追加されるよ。', style: TextStyle(fontSize: 27,color: Colors.white), textAlign: TextAlign.center),
         ],
       ),
       Column(
