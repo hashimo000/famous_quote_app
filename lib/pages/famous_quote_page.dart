@@ -82,7 +82,6 @@ class Famous_Quote_Page extends StatelessWidget {
   Widget modelToWidget(Tweet model) {
     // 以前のmodelToWidget関数の内容...
 
-    // ... ここにその内容を追加する
      final icon = Container(
     margin: const EdgeInsets.all(20),
     width: 60,
